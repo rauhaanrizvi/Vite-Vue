@@ -36,7 +36,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
     * http://localhost:3000/ for the Home page
 
-    * http://localhost:3000/about for the About page
+    * http://localhost:3000/about/ for the About page
 
     Then start developing the rest of pages inside `/src/pages/` following these two preceding examples.
 
