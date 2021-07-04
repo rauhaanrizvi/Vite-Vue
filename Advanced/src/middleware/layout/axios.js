@@ -10,7 +10,7 @@ export default async (to, from, next) => {
     return next()
   }
 
-  const { data } = await axios.get(apiBaseUrl + '/posts?slug=' + slug)
-  to.meta.layout = data[0].layout
+  const { data } = await axios.get(apiBaseUrl + slug)
+  to.meta.layout = data.layout
   return next()
 }

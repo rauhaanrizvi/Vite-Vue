@@ -8,8 +8,8 @@ export default async (to, from, next) => {
     return next()
   }
 
-  const res = await fetch(apiBaseUrl + '/posts?slug=' + slug)
+  const res = await fetch(apiBaseUrl + slug)
   const data = await res.json()
-  to.meta.layout = data[0].layout
+  to.meta.layout = data.layout
   return next()
 }

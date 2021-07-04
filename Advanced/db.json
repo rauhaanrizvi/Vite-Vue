@@ -1,21 +1,104 @@
 {
-  "posts": [
-    {
-      "id": 1,
+  "home": {
       "title": "Home",
-      "slug": "home",
       "author": "Jane Doe",
       "content": "Hello World!",
       "layout": "default"
-    },
-    {
-      "id": 2,
+   },
+  "about": {
       "title": "About",
-      "slug": "about",
       "author": "Jane Doe",
-      "content": "Sed ut perspiciatis unde omnis iste natus error sit.",
+      "content": "Hello World!",
       "layout": "dark"
+   },
+  "slots": {
+      "title": "Slots",
+      "author": "Jane Doe",
+      "content": "Hello World!",
+      "layout": "default"
+   },
+  "states": {
+      "title": "States",
+      "author": "Jane Doe",
+      "content": "Hello World!",
+      "layout": "default"
+   },
+   "contact": {
+      "title": "Contact",
+      "author": "Jane Doe",
+      "content": "Hello World!",
+      "layout": "default"
+   },
+  "posts": [
+    {
+      "id": "sample-1",
+      "title": "Home",
+      "slug": "sample-1",
+      "author": "Jane Doe",
+      "layout": "default",
+      "description": "Hello World!",
+      "excerpt": "Hello World!",
+      "content": "Hello World!",
+      "contents": [
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": "1",
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": "2",
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" }
+        ],
+      "featuredImage": {
+        "id": "1"
+      },
+      "carousel": {
+        "slug": "",
+        "title": "",
+        "description": "",
+        "images": [
+          { "id": "1" },
+          { "id": "2" },
+          { "id": "3" }
+        ]
+      },
+      "images": [
+        { "id": "1" },
+        { "id": "2" },
+        { "id": "3" }
+      ]
     }
+  ],
+  "images": [
+    { "id": 1, "file": "sample-1.jpg" },
+    { "id": 2, "file": "sample-2.jpg" },
+    { "id": 3, "file": "sample-3.jpg" },
+    { "id": 4, "file": "sample-4.jpg" },
+    { "id": 5, "file": "sample-5.jpg" },
+    { "id": 6, "file": "sample-6.jpg" },
+    { "id": 7, "file": "sample-7.jpg" },
+    { "id": 8, "file": "sample-8.jpg" },
+    { "id": 9, "file": "sample-9.jpg" },
+    { "id": 10, "file": "sample-10.jpg" },
+    { "id": 11, "file": "sample-11.jpg" },
+    { "id": 12, "file": "sample-12.jpg" },
+    { "id": 13, "file": "sample-13.jpg" },
+    { "id": 14, "file": "sample-14.jpg" },
+    { "id": 15, "file": "sample-15.jpg" },
+    { "id": 16, "file": "sample-16.jpg" },
+    { "id": 17, "file": "sample-17.jpg" },
+    { "id": 18, "file": "sample-18.jpg" },
+    { "id": 19, "file": "sample-19.jpg" },
+    { "id": 20, "file": "sample-20.jpg" }
   ],
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 }

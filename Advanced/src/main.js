@@ -17,5 +17,5 @@ import Axios from './plugins/axios'
 createApp(App)
   .use(Router)
   .use(Fetch)
-  .use(Axios, { baseUrl: 'http://localhost:3004' })
+  .use(Axios, { baseUrl: 'http://localhost:3004/' })
   .mount('#app')

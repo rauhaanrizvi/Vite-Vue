@@ -39,15 +39,15 @@ export default {
 
   async created () {
     // Vanilla fetch API.
-    // let res = await fetch('http://localhost:3004/posts/2')
+    // let res = await fetch('http://localhost:3004/about')
     // this.data = await res.json()
 
     // Using a custom plugin
-    // let res = await this.$fetch('/posts/2')
+    // let res = await this.$fetch('/about')
     // this.data = await res.json()
 
     // Using a custom axios.
-    let { data } = await this.$axios.get('/posts/2')
+    let { data } = await this.$axios.get('/about')
     this.data = data
   }
 
