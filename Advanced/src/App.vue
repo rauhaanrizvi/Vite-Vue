@@ -1,10 +1,11 @@
 <template>
   <div>
     <component :is="layout">
-      <nav>
+      <nav v-if="this.$store.getters.siteMenus">
         <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
+          <li v-for="(item, index) in this.$store.getters.siteMenus.header">
+            <router-link :to="item.path">{{ item.title }}</router-link>
+          </li>
         </ul>
       </nav>
       <router-view/>
@@ -34,6 +35,10 @@ export default {
     layout () {
       return (this.$route.meta.layout || defaultLayout)
     }
-  }
+  },
+
+  created () {
+    this.$store.dispatch('fetchSiteInfo')
+  },
 }
 </script>

@@ -1,11 +1,17 @@
 'use strict'
 
-import home from './home'
-import about from './about'
+import Home from './home'
+import About from './about'
+import Shop from './shop'
+import Blog from './blog'
+import Contact from './contact'
 
 const routes = [
-  home,
-  about
+  Home,
+  About,
+  Shop,
+  Blog,
+  Contact,
 ]
 
 export default routes

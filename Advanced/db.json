@@ -1,40 +1,132 @@
 {
+  "site": {
+    "meta": {
+      "title": "...",
+      "tagline": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": "..."
+    },
+    "menus": {
+      "header": [
+        { "id": 0, "title": "Home", "path": "/" },
+        { "id": 1, "title": "About", "path": "/about" },
+        { "id": 2, "title": "Shop", "path": "/shop" },
+        { "id": 3, "title": "Blog", "path": "/blog" },
+        { "id": 4, "title": "Contact", "path": "/contact" }
+      ],
+      "footer": [
+        { "id": 1, "title": "Home", "path": "/" },
+        { "id": 2, "title": "About", "path": "/about" },
+        { "id": 3, "title": "Shop", "path": "/shop" },
+        { "id": 4, "title": "Blog", "path": "/blog" },
+        { "id": 5, "title": "Contact", "path": "/contact" }
+      ],
+      "mobile": [
+        { "id": 1, "title": "Home", "path": "/" },
+        { "id": 2, "title": "About", "path": "/about" },
+        { "id": 3, "title": "Shop", "path": "/shop" },
+        { "id": 4, "title": "Blog", "path": "/blog" },
+        { "id": 5, "title": "Contact", "path": "/contact" }
+      ]
+    }
+  },
   "home": {
-      "title": "Home",
-      "author": "Jane Doe",
-      "content": "Hello World!",
-      "layout": "default"
+    "title": "Home",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
    },
   "about": {
-      "title": "About",
-      "author": "Jane Doe",
-      "content": "Hello World!",
-      "layout": "dark"
+    "title": "About",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "dark",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
    },
-  "slots": {
-      "title": "Slots",
-      "author": "Jane Doe",
-      "content": "Hello World!",
-      "layout": "default"
+  "shop": {
+    "title": "Shop",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
    },
-  "states": {
-      "title": "States",
-      "author": "Jane Doe",
-      "content": "Hello World!",
-      "layout": "default"
+  "blog": {
+    "title": "Blog",
+    "author": {
+      "id": 1
+    },
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
    },
-   "contact": {
-      "title": "Contact",
-      "author": "Jane Doe",
-      "content": "Hello World!",
-      "layout": "default"
+  "contact": {
+    "title": "Contact",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
    },
-  "posts": [
+  "products": [
     {
       "id": "sample-1",
       "title": "Home",
       "slug": "sample-1",
-      "author": "Jane Doe",
+      "author": {
+        "id": 1
+      },
       "layout": "default",
       "description": "Hello World!",
       "excerpt": "Hello World!",
@@ -44,7 +136,7 @@
           {
             "image":
             {
-              "id": "1",
+              "id": 1,
               "caption": "hello world"
             }
           },
@@ -52,30 +144,92 @@
           {
             "image":
             {
-              "id": "2",
+              "id": 2,
               "caption": "hello world"
             }
           },
           { "text": "hello world" }
         ],
-      "featuredImage": {
-        "id": "1"
+      "thumbnail": {
+        "id": 1
       },
       "carousel": {
         "slug": "",
         "title": "",
         "description": "",
         "images": [
-          { "id": "1" },
-          { "id": "2" },
-          { "id": "3" }
+          { "id": 1, "credit": "..." },
+          { "id": 2, "credit": "..." },
+          { "id": 3, "credit": "..." }
         ]
       },
       "images": [
-        { "id": "1" },
-        { "id": "2" },
-        { "id": "3" }
-      ]
+        { "id": 1, "credit": "..." },
+        { "id": 2, "credit": "..." },
+        { "id": 3, "credit": "..." }
+      ],
+      "meta": {
+        "title": "...",
+        "description": "...",
+        "keywords": "...",
+        "thumbnail": {
+          "id": 1
+        }
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": "sample-1",
+      "title": "Home",
+      "slug": "sample-1",
+      "author": {
+        "id": 1
+      },
+      "layout": "default",
+      "description": "Hello World!",
+      "excerpt": "Hello World!",
+      "content": "Hello World!",
+      "contents": [
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": 1,
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": 2,
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" }
+        ],
+      "featuredImage": {
+        "id": 1
+      },
+      "carousel": {
+        "slug": "",
+        "title": "",
+        "description": "",
+        "images": [
+          { "id": 1, "credit": "..." },
+          { "id": 2, "credit": "..." },
+          { "id": 3, "credit": "..." }
+        ]
+      },
+      "meta": {
+        "title": "...",
+        "description": "...",
+        "keywords": "...",
+        "thumbnail": {
+          "id": 1
+        }
+      }
     }
   ],
   "images": [
@@ -100,8 +254,8 @@
     { "id": 19, "file": "sample-19.jpg" },
     { "id": 20, "file": "sample-20.jpg" }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "Jane Doe" }
+  "authors": [
+    { "id": 1, "name": "jane Doe" },
+    { "id": 2, "name": "john Doe" }
+  ]
 }
