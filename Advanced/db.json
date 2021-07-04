@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Home",
+      "slug": "home",
+      "author": "Jane Doe",
+      "content": "Hello World!",
+      "layout": "default"
+    },
+    {
+      "id": 2,
+      "title": "About",
+      "slug": "about",
+      "author": "Jane Doe",
+      "content": "Sed ut perspiciatis unde omnis iste natus error sit.",
+      "layout": "dark"
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "Jane Doe" }
+}

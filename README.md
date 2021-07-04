@@ -50,7 +50,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
 2. Access the application at the `/dist/` folder.
 
-# Static & Processed Asset Handling
+# Handling Static & Processed Assets
 
 1. Use the `/src/assets/images/` folder for images that you want to be processed. Then in your HTML tags, use `@/assets/images/` to request your images, for example:
     
@@ -62,4 +62,68 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
     ```
     <img src="/static/...-unsplash.jpg">
+    ```
+
+# Mocking Data
+
+You need to install JSON Server and run the existing mock data as follows:
+
+```
+$ json-server --watch db.json --port 3004
+```
+
+For more on JSON Server, check out https://github.com/typicode/json-server#getting-started to get started. 
+
+You can follow the steps below to install and create the mock data:
+
+1. Install JSON Server:
+
+    ```
+    $ sudo npm install -g json-server
+    ```
+
+2. Navigate to the root directory and create a `db.json` with your mock data, for example:
+
+    ```
+    {
+      "posts": [
+        { "id": 1, "title": "json-server", "author": "Jane Doe" }
+      ],
+      "comments": [
+        { "id": 1, "body": "some comment", "postId": 1 }
+      ],
+      "profile": { "name": "Jane Doe" }
+    }
+    ```
+
+3. Start the JSON Server on port 3004 (or other ports as long as it is not 3000):
+
+    ```
+    $ json-server --watch db.json --port 3004
+    ```
+
+    You should see the following output on your terminal:
+
+    ```
+    \{^_^}/ hi!
+
+    Loading db.json
+    Done
+
+    Resources
+    http://localhost:3004/posts
+    http://localhost:3004/comments
+    http://localhost:3004/profile
+
+    Home
+    http://localhost:3004
+
+    Type s + enter at any time to create a snapshot of the database
+    Watching...
+    ```
+
+4. Now if you go to http://localhost:3004/posts/1, you should get the result below:
+
+    ```
+    { "id": 1, "title": "json-server", "author": "Jane Doe" }
     ```

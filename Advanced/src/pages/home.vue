@@ -1,7 +1,7 @@
 <template>
   <div class="bg-yellow-500">
-    <h1> {{ title }}</h1>
-    <p> {{ contents }}</p>
+    <h1>{{ data.title }}</h1>
+    <p>{{ data.content }}</p>
 
     <button class="
       bg-gradient-to-r from-green-400 to-blue-500
@@ -22,11 +22,18 @@ export default {
 
   data () {
     return {
-      title: 'Home',
-      description: 'Another awesome Vue app.',
-      excerpt: 'Something short and punchy.',
-      contents: 'Hello World!'
+      data: {}
     }
   },
+
+  async created () {
+    // Vanilla fetch API.
+    // let res = await fetch('http://localhost:3004/posts/1')
+    // this.data = await res.json()
+
+    // Using a custom plugin
+    let res = await this.$fetch('/posts/1')
+    this.data = await res.json()
+  }
 }
 </script>

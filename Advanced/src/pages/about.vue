@@ -1,7 +1,7 @@
 <template>
   <div class="bg-green-500">
-    <h1> {{ title }}</h1>
-    <p> {{ contents }}</p>
+    <h1>{{ data.title }}</h1>
+    <p>{{ data.content }}</p>
     <div class="box">
       <div class="text-center space-y-2">
         <div class="space-y-0.5">
@@ -28,11 +28,23 @@ export default {
 
   data () {
     return {
-      title: 'About',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      excerpt: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      contents: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.'
+      data: {}
     }
+  },
+
+  // beforeRouteEnter(to, from, next) {
+  //   console.log('to =========', to)
+  //   next()
+  // },
+
+  async created () {
+    // Vanilla fetch API.
+    // let res = await fetch('http://localhost:3004/posts/2')
+    // this.data = await res.json()
+
+    // Using a custom plugin
+    let res = await this.$fetch('/posts/2')
+    this.data = await res.json()
   }
 
   // Override global meta in App.vue and in mixin.
