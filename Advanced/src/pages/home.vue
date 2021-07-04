@@ -32,8 +32,12 @@ export default {
     // this.data = await res.json()
 
     // Using a custom plugin
-    let res = await this.$fetch('/posts/1')
-    this.data = await res.json()
+    // let res = await this.$fetch('/posts/1')
+    // this.data = await res.json()
+
+    // Using a custom axios.
+    let { data } = await this.$axios.get('/posts/1')
+    this.data = data
   }
 }
 </script>

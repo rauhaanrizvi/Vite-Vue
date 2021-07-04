@@ -43,8 +43,12 @@ export default {
     // this.data = await res.json()
 
     // Using a custom plugin
-    let res = await this.$fetch('/posts/2')
-    this.data = await res.json()
+    // let res = await this.$fetch('/posts/2')
+    // this.data = await res.json()
+
+    // Using a custom axios.
+    let { data } = await this.$axios.get('/posts/2')
+    this.data = data
   }
 
   // Override global meta in App.vue and in mixin.

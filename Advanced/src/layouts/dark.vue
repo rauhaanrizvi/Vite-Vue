@@ -1,6 +1,5 @@
 <template>
   <div class="dark">
-    xxxx
     <slot/>
   </div>
 </template>

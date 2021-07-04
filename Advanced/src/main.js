@@ -3,18 +3,19 @@
 import 'virtual:windi.css'
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+import Router from './router'
 
-// Install plugins.
+// Import plugins.
 import Fetch from './plugins/fetch'
+import Axios from './plugins/axios'
 
-// Get middleware
-import Layout from './middleware/layout'
-
-// Apply layout middleware to all routes,
-router.beforeEach(Layout)
+// Set the layout middleware to all routes globally.
+// import Layout from './middleware/layout/fetch'
+// import Layout from './middleware/layout/axios'
+// router.beforeEach(Layout)
 
 createApp(App)
-  .use(router)
+  .use(Router)
   .use(Fetch)
+  .use(Axios, { baseUrl: 'http://localhost:3004' })
   .mount('#app')
