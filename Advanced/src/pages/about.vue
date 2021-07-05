@@ -2,6 +2,10 @@
   <div class="bg-green-500">
     <h1>{{ data.title }}</h1>
     <p>{{ data.content }}</p>
+
+    <img :src="thumbnail">
+    <img :src="data.static ? this.$static(data.static) : null">
+
     <div class="box">
       <div class="text-center space-y-2">
         <div class="space-y-0.5">
@@ -17,8 +21,8 @@
         </button>
       </div>
     </div>
-    <img src="@/assets/images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg">
-    <img src="/static/luca-bravo-oV4bR3YoR_s-unsplash.jpg">
+    <!-- <img src="@/assets/images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg">
+    <img src="/static/luca-bravo-oV4bR3YoR_s-unsplash.jpg"> -->
   </div>
 </template>
 
@@ -28,14 +32,10 @@ export default {
 
   data () {
     return {
-      data: {}
+      data: {},
+      thumbnail: null
     }
   },
-
-  // beforeRouteEnter(to, from, next) {
-  //   console.log('to =========', to)
-  //   next()
-  // },
 
   async created () {
     // Vanilla fetch API.
@@ -47,9 +47,17 @@ export default {
     // this.data = await res.json()
 
     // Using a custom axios.
-    let { data } = await this.$axios.get('/about')
+    let { data } = await this.$axios.get(this.$route.path)
     this.data = data
-  }
+
+    // Dynamic import won't work in Vite.
+    // var path = '/src/assets/images/' + data.thumbnail
+    // var path = '/src/assets/images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg'
+    // var image = await import(path)
+    // console.log('image =', image.default)
+
+    this.thumbnail = this.$asset(data.thumbnail)
+  },
 
   // Override global meta in App.vue and in mixin.
   // metaInfo () {
