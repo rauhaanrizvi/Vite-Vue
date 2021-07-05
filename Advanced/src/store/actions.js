@@ -6,26 +6,30 @@ const apiBaseUrl = import.meta.env.VITE_REMOTE_API_BASE_URL
 
 export default {
   async fetchSiteInfo ({ state, commit, rootState }) {
+    // Web Storage: localStorage and sessionStorage. The localStorage and
+    // sessionStorage properties allow to save key/value pairs in a web browser.
+    // The sessionStorage object stores data for only one session (the data is
+    // deleted when the browser tab is closed).
 
-    // Get the data from the local storage.
-    // Web Storage (localStorage and sessionStorage)
-    let siteInfo = localStorage.getItem('site-info')
+    // Get the data from the session storage.
+    let item = sessionStorage.getItem('site-info')
 
     // If the item exists, then parse it.
-    if (siteInfo !== null) {
-      siteInfo = JSON.parse(siteInfo)
+    if (item !== null) {
+      var data = JSON.parse(item)
     } else {
-      const { data } = await axios.get(apiBaseUrl + 'site')
+      var { data } = await axios.get(apiBaseUrl + 'site')
 
-      // Store the data to the localStorage.
+      // Store the data to the sessionStorage.
       // Like cookies, you only can store the data as string.
-      siteInfo = JSON.stringify(data)
-      localStorage.setItem('site-info', siteInfo)
+      sessionStorage.setItem('site-info', JSON.stringify(data))
     }
-    // Remove localstorage data.
-    // localStorage.removeItem('site-info')
+    // Remove an item from the session storage.
+    // sessionStorage.removeItem('site-info')
 
-    // commit('setSiteInfo', data)
-    commit('setSiteInfo', siteInfo)
+    // Remove all saved data in the session storage.
+    // sessionStorage.clear()
+
+    commit('setSiteInfo', data)
   }
 }
