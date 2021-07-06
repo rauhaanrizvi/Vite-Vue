@@ -70,150 +70,174 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
     1. Using the `$asset` method (plugin):
     
-    ```
-    // script
-    data () {
-      return {
-        data: {}
-      }
-    },
+        ```
+        // script
+        data () {
+          return {
+            data: {}
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.data.thumbnail = this.$asset(data.thumbnail)
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.data.thumbnail = this.$asset(data.thumbnail)
+        }
 
-    // template
-    <img :src="data.thumbnail" v-if="data.thumbnail">
-    ```
+        // template
+        <img :src="data.thumbnail" v-if="data.thumbnail">
+        ```
 
-    Alternatively:
+        Alternatively:
 
-    ```
-    data () {
-      return {
-        thumbnail: null
-      }
-    },
+        ```
+        data () {
+          return {
+            thumbnail: null
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.thumbnail = this.$asset(data.thumbnail)
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.thumbnail = this.$asset(data.thumbnail)
+        }
 
-    <img :src="thumbnail">
-    ```
+        <img :src="thumbnail">
+        ```
+
+        Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
+
+        ```
+        <img :src="$asset(data.thumbnail)" v-if="data.thumbnail">
+        ```
 
     2. Using the `getAsset` method (mixin):
     
-    ```
-    // script
-    data () {
-      return {
-        data: {}
-      }
-    },
+        ```
+        // script
+        data () {
+          return {
+            data: {}
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.data.thumbnail = this.getAsset(data.thumbnail)
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.data.thumbnail = this.getAsset(data.thumbnail)
+        }
 
-    // template
-    <img :src="data.thumbnail" v-if="data.thumbnail">
-    ```
+        // template
+        <img :src="data.thumbnail" v-if="data.thumbnail">
+        ```
 
-    Alternatively:
+        Alternatively:
 
-    ```
-    data () {
-      return {
-        thumbnail: null
-      }
-    },
+        ```
+        data () {
+          return {
+            thumbnail: null
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.thumbnail = this.getAsset(data.thumbnail)
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.thumbnail = this.getAsset(data.thumbnail)
+        }
 
-    <img :src="thumbnail">
-    ```
+        <img :src="thumbnail">
+        ```
+
+        Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
+
+        ```
+        <img :src="getAsset(data.thumbnail)" v-if="data.thumbnail">
+        ```
 
 2. Use the `/public/static/` folder for images that you do NOT want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
 
 
     1. Using the `$static` method (plugin):
     
-    ```
-    // script
-    data () {
-      return {
-        data: {}
-      }
-    },
+        ```
+        // script
+        data () {
+          return {
+            data: {}
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.data = data
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.data = data
+        }
 
-    // template
-    <img :src="$static(data.static)" v-if="data.static">
-    ```
+        // template
+        <img :src="$static(data.static)" v-if="data.static">
+        ```
 
-    Alternatively:
+        Alternatively:
 
-    ```
-    data () {
-      return {
-        static: null
-      }
-    },
+        ```
+        data () {
+          return {
+            static: null
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.static = this.$static(data.static)
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.static = this.$static(data.static)
+        }
 
-    <img :src="staticThumbnail">
-    ```
+        <img :src="static">
+        ```
+
+        Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
+
+        ```
+        <img :src="$static(data.static)" v-if="data.static">
+        ```
 
     2. Using the `getStatic` method (mixin):
     
-    ```
-    // script
-    data () {
-      return {
-        data: {}
-      }
-    },
+        ```
+        // script
+        data () {
+          return {
+            data: {}
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.data = data
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.data = data
+        }
 
-    // template
-    <img :src="static(data.static)" v-if="data.static">
-    ```
+        // template
+        <img :src="getStatic(data.static)" v-if="data.static">
+        ```
 
-    Alternatively:
+        Alternatively:
 
-    ```
-    data () {
-      return {
-        static: null
-      }
-    },
+        ```
+        data () {
+          return {
+            static: null
+          }
+        },
 
-    async created () {
-      let { data } = await this.$axios.get(this.$route.path)
-      this.staticThumbnail = this.getStatic(data.static)
-    }
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.static = this.getStatic(data.static)
+        }
 
-    <img :src="static">
-    ```
+        <img :src="static">
+        ```
+
+        Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
+
+        ```
+        <img :src="getStatic(data.static)" v-if="data.static">
+        ```
 
 # Mocking Data
 
