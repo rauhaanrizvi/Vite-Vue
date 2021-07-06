@@ -104,7 +104,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     <img :src="thumbnail">
     ```
 
-    2. Using the `asset` method (mixin):
+    2. Using the `getAsset` method (mixin):
     
     ```
     // script
@@ -179,7 +179,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     <img :src="staticThumbnail">
     ```
 
-    2. Using the `static` method (mixin):
+    2. Using the `getStatic` method (mixin):
     
     ```
     // script
