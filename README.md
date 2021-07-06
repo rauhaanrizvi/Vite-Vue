@@ -68,7 +68,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
 1. Use the `/src/assets/images/` folder for images that you want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
 
-    1. Using the `$asset` method (plugin):
+    1. Using the `$getAsset` method (plugin):
     
         ```
         // script
@@ -80,7 +80,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
         async created () {
           let { data } = await this.$axios.get(this.$route.path)
-          this.data.thumbnail = this.$asset(data.thumbnail)
+          this.data.thumbnail = this.$getAsset(data.thumbnail)
         }
 
         // template
@@ -98,7 +98,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
         async created () {
           let { data } = await this.$axios.get(this.$route.path)
-          this.thumbnail = this.$asset(data.thumbnail)
+          this.thumbnail = this.$getAsset(data.thumbnail)
         }
 
         <img :src="thumbnail">
@@ -107,7 +107,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
         Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
 
         ```
-        <img :src="$asset(data.thumbnail)" v-if="data.thumbnail">
+        <img :src="$getAsset(data.thumbnail)" v-if="data.thumbnail">
         ```
 
     2. Using the `getAsset` method (mixin):
@@ -155,7 +155,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 2. Use the `/public/static/` folder for images that you do NOT want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
 
 
-    1. Using the `$static` method (plugin):
+    1. Using the `$getStatic` method (plugin):
     
         ```
         // script
@@ -171,7 +171,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
         }
 
         // template
-        <img :src="$static(data.static)" v-if="data.static">
+        <img :src="$getStatic(data.static)" v-if="data.static">
         ```
 
         Alternatively:
@@ -185,7 +185,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
         async created () {
           let { data } = await this.$axios.get(this.$route.path)
-          this.static = this.$static(data.static)
+          this.static = this.$getStatic(data.static)
         }
 
         <img :src="static">
@@ -194,7 +194,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
         Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
 
         ```
-        <img :src="$static(data.static)" v-if="data.static">
+        <img :src="$getStatic(data.static)" v-if="data.static">
         ```
 
     2. Using the `getStatic` method (mixin):
@@ -238,6 +238,29 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
         ```
         <img :src="getStatic(data.static)" v-if="data.static">
         ```
+
+# Installing CSS Pre-processors
+
+Install your favourite CSS pre-processors as follows:
+
+1. Navigate to your root directory.
+
+2. Install one of them (or all) via NPM:
+
+    ```
+    # .scss and .sass
+    npm install -D sass
+
+    # .less
+    npm install -D less
+
+    # .styl and .stylus
+    npm install -D stylus
+    ```
+
+Read More:
+
+* https://vitejs.dev/guide/features.html#css-pre-processors
 
 # Mocking Data
 

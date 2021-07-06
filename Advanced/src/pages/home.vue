@@ -1,7 +1,7 @@
 <template>
   <div class="bg-yellow-500">
     <h1>{{ data.title }}</h1>
-    <p>{{ data.content }}</p>
+    <p class="text-red">{{ data.content }}</p>
 
     <button class="
       bg-gradient-to-r from-green-400 to-blue-500

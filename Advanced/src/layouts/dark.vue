@@ -12,13 +12,7 @@ export default {
 
 <style scoped>
 .dark {
-  height: 100vh;
   background-color: red;
-  color: #fff;
-}
-
-.dark a {
-  color: #fff;
 }
 </style>
 

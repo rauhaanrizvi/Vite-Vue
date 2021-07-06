@@ -1,10 +1,12 @@
 'use strict'
 
-import 'virtual:windi.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import Router from './router'
 import Store from './store'
+
+// Import styles.
+import './assets/styles'
 
 // Import mixins.
 import MixinsUtils from './mixins/utils'

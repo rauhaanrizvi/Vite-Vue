@@ -7,7 +7,7 @@ export default {
     if (options === undefined) {
       options = {}
     }
-    app.config.globalProperties.$asset = file => {
+    app.config.globalProperties.$getAsset = file => {
       // Handling dynamic assets.
       // https://vitejs.dev/guide/features.html#glob-import
       // https://github.com/vitejs/vite/issues/1265
@@ -15,7 +15,7 @@ export default {
       return images[`/src/assets/images/${file}`].default
     }
 
-    app.config.globalProperties.$static = file => {
+    app.config.globalProperties.$getStatic = file => {
       return '/static/' + file
     }
   }

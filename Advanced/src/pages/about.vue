@@ -1,14 +1,14 @@
 <template>
   <div class="bg-green-500">
     <h1>{{ data.title }}</h1>
-    <p>{{ data.content }}</p>
+    <p class="text-blue">{{ data.content }}</p>
 
     <img :src="thumbnail">
     <img :src="static">
 
     <img :src="data.thumbnail">
 
-    <img :src="$static(data.static)" v-if="data.static">
+    <img :src="$getStatic(data.static)" v-if="data.static">
     <img :src="getStatic(data.static)" v-if="data.static">
 
     <div class="box">
@@ -65,7 +65,7 @@ export default {
     // console.log('image =', image.default)
 
     // Using a plugin.
-    // this.thumbnail = this.$asset(data.thumbnail)
+    // this.thumbnail = this.$getAsset(data.thumbnail)
 
     // Using a mixin.
     this.thumbnail = this.getAsset(data.thumbnail)
