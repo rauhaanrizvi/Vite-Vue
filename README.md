@@ -213,7 +213,7 @@ You can follow the steps below to install and create the mock data:
 
 # Notes
 
-1. The method and data property names should not be the same. Otherwise they they will conflict in Vue. For example:
+1. The method and data property names should not be the same. Otherwise they they will conflict with each other. For example:
 
     ```
     data () {
@@ -231,4 +231,31 @@ You can follow the steps below to install and create the mock data:
 
     ```
     [Vue warn]: Data property "hello" is already defined in Methods. 
+    ```
+
+    Same in a plain JavaScript code:
+
+    ```
+    let hello = null
+    function hello () {
+      //
+    }
+    ```
+
+    This pattern will yell the following error:
+
+    ```
+    Uncaught SyntaxError: Identifier 'hello' has already been declared
+    ```
+
+    Same with the following pattern:
+
+    ```
+    var hello = 'world'
+    function hello () {
+      return 'HELLO!'
+    }
+
+    console.log(hello) // world
+    console.log(hello()) // Uncaught TypeError: hello is not a function
     ```
