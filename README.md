@@ -87,6 +87,23 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     <img :src="data.thumbnail" v-if="data.thumbnail">
     ```
 
+    Alternatively:
+
+    ```
+    data () {
+      return {
+        thumbnail: null
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.thumbnail = this.$asset(data.thumbnail)
+    }
+
+    <img :src="thumbnail">
+    ```
+
     2. Using the `asset` method (mixin):
     
     ```
