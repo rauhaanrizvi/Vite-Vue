@@ -74,17 +74,17 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     // script
     data () {
       return {
-        thumbnail: null
+        data: {}
       }
     },
 
     async created () {
       let { data } = await this.$axios.get(this.$route.path)
-      this.thumbnail = this.$asset(data.thumbnail)
+      this.data.thumbnail = this.$asset(data.thumbnail)
     }
 
     // template
-    <img :src="thumbnail">
+    <img :src="data.thumbnail" v-if="data.thumbnail">
     ```
 
     2. Using the `asset` method (mixin):
@@ -93,17 +93,17 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     // script
     data () {
       return {
-        thumbnail: null
+        data: {}
       }
     },
 
     async created () {
       let { data } = await this.$axios.get(this.$route.path)
-      this.thumbnail = this.asset(data.thumbnail)
+      this.data.thumbnail = this.asset(data.thumbnail)
     }
 
     // template
-    <img :src="thumbnail">
+    <img :src="data.thumbnail" v-if="data.thumbnail">
     ```
 
 2. Use the `/public/static/` folder for images that you do NOT want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
@@ -125,7 +125,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     }
 
     // template
-    <img :src="data.static ? this.$static(data.static) : null">
+    <img :src="$static(data.static)" v-if="data.static">
     ```
 
     2. Using the `static` method (mixin):
@@ -144,7 +144,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     }
 
     // template
-    <img :src="data.static ? static(data.static) : null">
+    <img :src="static(data.static)" v-if="data.static">
     ```
 
 # Mocking Data
@@ -209,4 +209,26 @@ You can follow the steps below to install and create the mock data:
 
     ```
     { "id": 1, "title": "json-server", "author": "Jane Doe" }
+    ```
+
+# Notes
+
+1. The method and data property names should not be the same. Otherwise they they will conflict in Vue. For example:
+
+    ```
+    data () {
+      return {
+        hello: null
+      }
+    },
+
+    methods: {
+      hello () {...}
+    },
+    ```
+
+    This pattern will yell the following error:
+
+    ```
+    [Vue warn]: Data property "hello" is already defined in Methods. 
     ```

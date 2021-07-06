@@ -3,9 +3,9 @@
     <h1>{{ data.title }}</h1>
     <p>{{ data.content }}</p>
 
-    <img :src="thumbnail">
-    <img :src="data.static ? this.$static(data.static) : null">
-    <img :src="data.static ? static(data.static) : null">
+    <img :src="data.thumbnail" v-if="data.thumbnail">
+    <img :src="$static(data.static)" v-if="data.static">
+    <img :src="static(data.static)" v-if="data.static">
 
     <div class="box">
       <div class="text-center space-y-2">
@@ -33,8 +33,7 @@ export default {
 
   data () {
     return {
-      data: {},
-      thumbnail: null
+      data: {}
     }
   },
 
@@ -61,7 +60,7 @@ export default {
     // this.thumbnail = this.$asset(data.thumbnail)
 
     // Using a mixin.
-    this.thumbnail = this.asset(data.thumbnail)
+    this.data.thumbnail = this.asset(data.thumbnail)
   },
 
   // Override global meta in App.vue and in mixin.
