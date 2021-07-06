@@ -5,7 +5,7 @@ const baseUrl = import.meta.env.BASE_URL
 // https://v3.vuejs.org/guide/mixins.html#basics
 export default {
   methods: {
-    asset (file) {
+    getAsset (file) {
       if (!file) {
         return
       }
@@ -13,7 +13,7 @@ export default {
       return images[`/src/assets/images/${file}`].default
     },
 
-    static (file) {
+    getStatic (file) {
       if (!file) {
         return
       }

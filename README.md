@@ -116,7 +116,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
     async created () {
       let { data } = await this.$axios.get(this.$route.path)
-      this.data.thumbnail = this.asset(data.thumbnail)
+      this.data.thumbnail = this.getAsset(data.thumbnail)
     }
 
     // template
@@ -134,7 +134,7 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
     async created () {
       let { data } = await this.$axios.get(this.$route.path)
-      this.thumbnail = this.asset(data.thumbnail)
+      this.thumbnail = this.getAsset(data.thumbnail)
     }
 
     <img :src="thumbnail">
@@ -167,13 +167,13 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     ```
     data () {
       return {
-        staticThumbnail: null
+        static: null
       }
     },
 
     async created () {
       let { data } = await this.$axios.get(this.$route.path)
-      this.staticThumbnail = this.$static(data.static)
+      this.static = this.$static(data.static)
     }
 
     <img :src="staticThumbnail">
@@ -203,16 +203,16 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     ```
     data () {
       return {
-        staticThumbnail: null
+        static: null
       }
     },
 
     async created () {
       let { data } = await this.$axios.get(this.$route.path)
-      this.staticThumbnail = this.static(data.static)
+      this.staticThumbnail = this.getStatic(data.static)
     }
 
-    <img :src="staticThumbnail">
+    <img :src="static">
     ```
 
 # Mocking Data

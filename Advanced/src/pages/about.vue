@@ -4,13 +4,12 @@
     <p>{{ data.content }}</p>
 
     <img :src="thumbnail">
-    <img :src="staticThumbnail">
+    <img :src="static">
 
     <img :src="data.thumbnail">
 
     <img :src="$static(data.static)" v-if="data.static">
-    <img :src="static(data.static)" v-if="data.static">
-
+    <img :src="getStatic(data.static)" v-if="data.static">
 
     <div class="box">
       <div class="text-center space-y-2">
@@ -40,7 +39,7 @@ export default {
     return {
       data: {},
       thumbnail: null,
-      staticThumbnail: null
+      static: null
     }
   },
 
@@ -57,7 +56,7 @@ export default {
     let { data } = await this.$axios.get(this.$route.path)
     this.data = data
 
-    this.staticThumbnail = this.static(data.static)
+    this.static = this.getStatic(data.static)
 
     // Dynamic import won't work in Vite.
     // var path = '/src/assets/images/' + data.thumbnail
@@ -69,8 +68,8 @@ export default {
     // this.thumbnail = this.$asset(data.thumbnail)
 
     // Using a mixin.
-    this.thumbnail = this.asset(data.thumbnail)
-    this.data.thumbnail = this.asset(data.thumbnail)
+    this.thumbnail = this.getAsset(data.thumbnail)
+    this.data.thumbnail = this.getAsset(data.thumbnail)
   },
 
   // Override global meta in App.vue and in mixin.
