@@ -64,6 +64,89 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     <img src="/static/...-unsplash.jpg">
     ```
 
+# Handling Dynamic Static and Processed Assets
+
+1. Use the `/src/assets/images/` folder for images that you want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
+
+    1. Using the `$asset` method (plugin):
+    
+    ```
+    // script
+    data () {
+      return {
+        thumbnail: null
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.thumbnail = this.$asset(data.thumbnail)
+    }
+
+    // template
+    <img :src="thumbnail">
+    ```
+
+    2. Using the `asset` method (mixin):
+    
+    ```
+    // script
+    data () {
+      return {
+        thumbnail: null
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.thumbnail = this.asset(data.thumbnail)
+    }
+
+    // template
+    <img :src="thumbnail">
+    ```
+
+2. Use the `/public/static/` folder for images that you do NOT want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
+
+
+    1. Using the `$static` method (plugin):
+    
+    ```
+    // script
+    data () {
+      return {
+        data: {}
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.data = data
+    }
+
+    // template
+    <img :src="data.static ? this.$static(data.static) : null">
+    ```
+
+    2. Using the `static` method (mixin):
+    
+    ```
+    // script
+    data () {
+      return {
+        data: {}
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.data = data
+    }
+
+    // template
+    <img :src="data.static ? static(data.static) : null">
+    ```
+
 # Mocking Data
 
 You need to install JSON Server and run the existing mock data as follows:

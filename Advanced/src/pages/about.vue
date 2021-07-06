@@ -5,6 +5,7 @@
 
     <img :src="thumbnail">
     <img :src="data.static ? this.$static(data.static) : null">
+    <img :src="data.static ? static(data.static) : null">
 
     <div class="box">
       <div class="text-center space-y-2">
@@ -56,7 +57,11 @@ export default {
     // var image = await import(path)
     // console.log('image =', image.default)
 
-    this.thumbnail = this.$asset(data.thumbnail)
+    // Using a plugin.
+    // this.thumbnail = this.$asset(data.thumbnail)
+
+    // Using a mixin.
+    this.thumbnail = this.asset(data.thumbnail)
   },
 
   // Override global meta in App.vue and in mixin.
