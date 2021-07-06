@@ -106,6 +106,23 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     <img :src="data.thumbnail" v-if="data.thumbnail">
     ```
 
+    Alternatively:
+
+    ```
+    data () {
+      return {
+        thumbnail: null
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.thumbnail = this.asset(data.thumbnail)
+    }
+
+    <img :src="thumbnail">
+    ```
+
 2. Use the `/public/static/` folder for images that you do NOT want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
 
 
@@ -128,6 +145,23 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
     <img :src="$static(data.static)" v-if="data.static">
     ```
 
+    Alternatively:
+
+    ```
+    data () {
+      return {
+        staticThumbnail: null
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.staticThumbnail = this.$static(data.static)
+    }
+
+    <img :src="staticThumbnail">
+    ```
+
     2. Using the `static` method (mixin):
     
     ```
@@ -145,6 +179,23 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
 
     // template
     <img :src="static(data.static)" v-if="data.static">
+    ```
+
+    Alternatively:
+
+    ```
+    data () {
+      return {
+        staticThumbnail: null
+      }
+    },
+
+    async created () {
+      let { data } = await this.$axios.get(this.$route.path)
+      this.staticThumbnail = this.static(data.static)
+    }
+
+    <img :src="staticThumbnail">
     ```
 
 # Mocking Data

@@ -3,9 +3,14 @@
     <h1>{{ data.title }}</h1>
     <p>{{ data.content }}</p>
 
-    <img :src="data.thumbnail" v-if="data.thumbnail">
+    <img :src="thumbnail">
+    <img :src="staticThumbnail">
+
+    <img :src="data.thumbnail">
+
     <img :src="$static(data.static)" v-if="data.static">
     <img :src="static(data.static)" v-if="data.static">
+
 
     <div class="box">
       <div class="text-center space-y-2">
@@ -33,7 +38,9 @@ export default {
 
   data () {
     return {
-      data: {}
+      data: {},
+      thumbnail: null,
+      staticThumbnail: null
     }
   },
 
@@ -50,6 +57,8 @@ export default {
     let { data } = await this.$axios.get(this.$route.path)
     this.data = data
 
+    this.staticThumbnail = this.static(data.static)
+
     // Dynamic import won't work in Vite.
     // var path = '/src/assets/images/' + data.thumbnail
     // var path = '/src/assets/images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg'
@@ -60,6 +69,7 @@ export default {
     // this.thumbnail = this.$asset(data.thumbnail)
 
     // Using a mixin.
+    this.thumbnail = this.asset(data.thumbnail)
     this.data.thumbnail = this.asset(data.thumbnail)
   },
 
