@@ -33,7 +33,7 @@
 
 <script>
 import axios from '@/modules/axios'
-import { getAsset, getStatic} from '@/modules/utils'
+import { getAsset, getStatic } from '@/modules/utils'
 
 export default {
   name: 'about',
