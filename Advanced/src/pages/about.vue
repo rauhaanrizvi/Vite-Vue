@@ -46,11 +46,6 @@ export default {
     }
   },
 
-  errorCaptured(error) {
-    console.log('An error has occurred!', error)
-    return false
-  },
-
   async created () {
     try {
       // Vanilla fetch API.
