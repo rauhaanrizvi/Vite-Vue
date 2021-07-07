@@ -18,5 +18,14 @@ export default {
     app.config.globalProperties.$getStatic = file => {
       return '/static/' + file
     }
+
+    // https://v3.vuejs.org/api/application-config.html#errorhandler
+    // app.config.errorHandler = (err, vm, info) => {
+    //   console.log('err ======', err)
+    //   // handle error
+    //   // `info` is a Vue-specific error info, e.g. which lifecycle hook
+    //   // the error was found in
+    // }
+
   }
 }

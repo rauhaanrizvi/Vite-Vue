@@ -46,41 +46,68 @@ export default {
     }
   },
 
+  errorCaptured(error) {
+    console.log('An error has occurred!', error)
+    return false
+  },
+
   async created () {
-    // Vanilla fetch API.
-    // let res = await fetch('http://localhost:3004/about')
-    // this.data = await res.json()
+    try {
+      // Vanilla fetch API.
+      // let res = await fetch('http://localhost:3004/about')
+      // this.data = await res.json()
 
-    // Using a custom fetch plugin
-    // let res = await this.$fetch('/about')
-    // this.data = await res.json()
+      // Using a custom fetch plugin
+      // let res = await this.$fetch('/about')
+      // this.data = await res.json()
 
-    // Using a custom axios plugin.
-    // let { data } = await this.$axios.get(this.$route.path)
-    // this.data = data
+      // Using a custom axios plugin.
+      // let { data } = await this.$axios.get(this.$route.path)
+      // this.data = data
 
-    // Using a custom axios module.
-    let { data } = await axios.get(this.$route.path)
-    this.data = data
+      // Using a custom axios module.
+      let { data } = await axios.get(this.$route.path)
+      this.data = data
 
-    this.static = this.getStatic(data.static)
+      this.static = this.getStatic(data.static)
 
-    // Dynamic import won't work in Vite.
-    // var path = '/src/assets/images/' + data.thumbnail
-    // var path = '/src/assets/images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg'
-    // var image = await import(path)
-    // console.log('image =', image.default)
+      // Dynamic import won't work in Vite.
+      // var path = '/src/assets/images/' + data.thumbnail
+      // var path = '/src/assets/images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg'
+      // var image = await import(path)
+      // console.log('image =', image.default)
 
-    // Using a plugin.
-    // this.thumbnail = this.$getAsset(data.thumbnail)
+      // Using a plugin.
+      // this.thumbnail = this.$getAsset(data.thumbnail)
 
-    // Using a mixin.
-    // this.thumbnail = this.getAsset(data.thumbnail)
-    // this.data.thumbnail = this.getAsset(data.thumbnail)
+      // Using a mixin.
+      // this.thumbnail = this.getAsset(data.thumbnail)
+      // this.data.thumbnail = this.getAsset(data.thumbnail)
 
-    // Using a module
-    this.thumbnail = getAsset(data.thumbnail)
-    this.data.thumbnail = getAsset(data.thumbnail)
+      // Using a module
+      this.thumbnail = getAsset(data.thumbnail)
+      this.data.thumbnail = getAsset(data.thumbnail)
+
+    } catch (error) {
+      // Handle error
+
+      // The error object will contain the response property:
+      if (error.response) {
+        console.log('error.response.statusText =', error.response.statusText)
+        console.log('error.response.status =', error.response.status)
+        console.log('error.response.headers =', error.response.headers)
+      }
+
+      // Push to the generic error page.
+      this.$router.push({
+        name: 'errors', // or, 404
+        params: {
+          pathMatch: this.$route.path.substring(1).split('/'),
+          statusCode: error.response.status,
+          message: error.message
+        },
+      })
+    }
   },
 
   // Override global meta in App.vue and in mixin.
