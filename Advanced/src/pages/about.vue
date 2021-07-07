@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import axios from '@/modules/axios'
 import { getAsset, getStatic} from '@/modules/utils'
 
 export default {
@@ -50,12 +51,16 @@ export default {
     // let res = await fetch('http://localhost:3004/about')
     // this.data = await res.json()
 
-    // Using a custom plugin
+    // Using a custom fetch plugin
     // let res = await this.$fetch('/about')
     // this.data = await res.json()
 
-    // Using a custom axios.
-    let { data } = await this.$axios.get(this.$route.path)
+    // Using a custom axios plugin.
+    // let { data } = await this.$axios.get(this.$route.path)
+    // this.data = data
+
+    // Using a custom axios module.
+    let { data } = await axios.get(this.$route.path)
     this.data = data
 
     this.static = this.getStatic(data.static)
