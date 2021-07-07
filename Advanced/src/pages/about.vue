@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { getAsset, getStatic} from '@/modules/utils'
+
 export default {
   name: 'about',
 
@@ -68,8 +70,12 @@ export default {
     // this.thumbnail = this.$getAsset(data.thumbnail)
 
     // Using a mixin.
-    this.thumbnail = this.getAsset(data.thumbnail)
-    this.data.thumbnail = this.getAsset(data.thumbnail)
+    // this.thumbnail = this.getAsset(data.thumbnail)
+    // this.data.thumbnail = this.getAsset(data.thumbnail)
+
+    // Using a module
+    this.thumbnail = getAsset(data.thumbnail)
+    this.data.thumbnail = getAsset(data.thumbnail)
   },
 
   // Override global meta in App.vue and in mixin.

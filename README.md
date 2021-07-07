@@ -152,6 +152,50 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
         <img :src="getAsset(data.thumbnail)" v-if="data.thumbnail">
         ```
 
+    3. Using the `getAsset` method (module):
+    
+        ```
+        // script
+        import { getAsset } from '@/modules/utils'
+
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.data.thumbnail = getAsset(data.thumbnail)
+        }
+
+        // template
+        <img :src="data.thumbnail" v-if="data.thumbnail">
+        ```
+
+        Alternatively:
+
+        ```
+        import { getAsset } from '@/modules/utils'
+
+        data () {
+          return {
+            thumbnail: null
+          }
+        },
+
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.thumbnail = getAsset(data.thumbnail)
+        }
+
+        <img :src="thumbnail">
+        ```
+
+        Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
+
+        ```
+        import { getAsset } from '@/modules/utils'
+
+        <img :src="getAsset(data.thumbnail)" v-if="data.thumbnail">
+        ```
+
+        It is recommended to make methods explicitly rather than making them global.
+
 2. Use the `/public/static/` folder for images that you do NOT want to be processed. Then in your `<script>` and `<template>` blocks, use one of the following global methods to request your images, for example:
 
 
@@ -238,6 +282,56 @@ For more on Windi CSS, check out https://windicss.org/guide/ to get started.
         ```
         <img :src="getStatic(data.static)" v-if="data.static">
         ```
+
+    3. Using the `getStatic` method (module):
+    
+        ```
+        // script
+        import { getStatic} from '@/modules/utils'
+
+        data () {
+          return {
+            data: {}
+          }
+        },
+
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.data = data
+        }
+
+        // template
+        <img :src="getStatic(data.static)" v-if="data.static">
+        ```
+
+        Alternatively:
+
+        ```
+        import { getStatic} from '@/modules/utils'
+
+        data () {
+          return {
+            static: null
+          }
+        },
+
+        async created () {
+          let { data } = await this.$axios.get(this.$route.path)
+          this.static = getStatic(data.static)
+        }
+
+        <img :src="static">
+        ```
+
+        Or, use the method directly in the `<template>` block without having to set the data property in the `<script>` block:
+
+        ```
+        import { getStatic} from '@/modules/utils'
+
+        <img :src="getStatic(data.static)" v-if="data.static">
+        ```
+
+        It is recommended to make methods explicitly rather than making them global.
 
 # Installing CSS Pre-processors
 
