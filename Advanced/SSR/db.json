@@ -1,0 +1,263 @@
+{
+  "site": {
+    "meta": {
+      "title": "...",
+      "tagline": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": "..."
+    },
+    "menus": {
+      "header": [
+        { "id": 0, "title": "Home", "path": "/" },
+        { "id": 1, "title": "About", "path": "/about" },
+        { "id": 2, "title": "Shop", "path": "/shop" },
+        { "id": 3, "title": "Blog", "path": "/blog" },
+        { "id": 4, "title": "Contact", "path": "/contact" }
+      ],
+      "footer": [
+        { "id": 1, "title": "Home", "path": "/" },
+        { "id": 2, "title": "About", "path": "/about" },
+        { "id": 3, "title": "Shop", "path": "/shop" },
+        { "id": 4, "title": "Blog", "path": "/blog" },
+        { "id": 5, "title": "Contact", "path": "/contact" }
+      ],
+      "mobile": [
+        { "id": 1, "title": "Home", "path": "/" },
+        { "id": 2, "title": "About", "path": "/about" },
+        { "id": 3, "title": "Shop", "path": "/shop" },
+        { "id": 4, "title": "Blog", "path": "/blog" },
+        { "id": 5, "title": "Contact", "path": "/contact" }
+      ]
+    }
+  },
+  "home": {
+    "title": "Home",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
+   },
+  "about": {
+    "title": "About",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "thumbnail": "sven-scheuermeier-VNseEaTt9w4-unsplash.jpg",
+    "static": "luca-bravo-oV4bR3YoR_s-unsplash.jpg",
+    "layout": "dark",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
+   },
+  "shop": {
+    "title": "Shop",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
+   },
+  "blog": {
+    "title": "Blog",
+    "author": {
+      "id": 1
+    },
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
+   },
+  "contact": {
+    "title": "Contact",
+    "author": {
+      "id": 1
+    },
+    "description": "...",
+    "excerpt": "...",
+    "content": "Hello World!",
+    "layout": "default",
+    "meta": {
+      "title": "...",
+      "description": "...",
+      "keywords": "...",
+      "thumbnail": {
+        "id": 1
+      }
+    }
+   },
+  "products": [
+    {
+      "id": "sample-1",
+      "title": "Home",
+      "slug": "sample-1",
+      "author": {
+        "id": 1
+      },
+      "layout": "default",
+      "description": "Hello World!",
+      "excerpt": "Hello World!",
+      "content": "Hello World!",
+      "contents": [
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": 1,
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": 2,
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" }
+        ],
+      "thumbnail": {
+        "id": 1
+      },
+      "carousel": {
+        "slug": "",
+        "title": "",
+        "description": "",
+        "images": [
+          { "id": 1, "credit": "..." },
+          { "id": 2, "credit": "..." },
+          { "id": 3, "credit": "..." }
+        ]
+      },
+      "images": [
+        { "id": 1, "credit": "..." },
+        { "id": 2, "credit": "..." },
+        { "id": 3, "credit": "..." }
+      ],
+      "meta": {
+        "title": "...",
+        "description": "...",
+        "keywords": "...",
+        "thumbnail": {
+          "id": 1
+        }
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": "sample-1",
+      "title": "Home",
+      "slug": "sample-1",
+      "author": {
+        "id": 1
+      },
+      "layout": "default",
+      "description": "Hello World!",
+      "excerpt": "Hello World!",
+      "content": "Hello World!",
+      "contents": [
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": 1,
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" },
+          {
+            "image":
+            {
+              "id": 2,
+              "caption": "hello world"
+            }
+          },
+          { "text": "hello world" }
+        ],
+      "featuredImage": {
+        "id": 1
+      },
+      "carousel": {
+        "slug": "",
+        "title": "",
+        "description": "",
+        "images": [
+          { "id": 1, "credit": "..." },
+          { "id": 2, "credit": "..." },
+          { "id": 3, "credit": "..." }
+        ]
+      },
+      "meta": {
+        "title": "...",
+        "description": "...",
+        "keywords": "...",
+        "thumbnail": {
+          "id": 1
+        }
+      }
+    }
+  ],
+  "images": [
+    { "id": 1, "file": "sample-1.jpg" },
+    { "id": 2, "file": "sample-2.jpg" },
+    { "id": 3, "file": "sample-3.jpg" },
+    { "id": 4, "file": "sample-4.jpg" },
+    { "id": 5, "file": "sample-5.jpg" },
+    { "id": 6, "file": "sample-6.jpg" },
+    { "id": 7, "file": "sample-7.jpg" },
+    { "id": 8, "file": "sample-8.jpg" },
+    { "id": 9, "file": "sample-9.jpg" },
+    { "id": 10, "file": "sample-10.jpg" },
+    { "id": 11, "file": "sample-11.jpg" },
+    { "id": 12, "file": "sample-12.jpg" },
+    { "id": 13, "file": "sample-13.jpg" },
+    { "id": 14, "file": "sample-14.jpg" },
+    { "id": 15, "file": "sample-15.jpg" },
+    { "id": 16, "file": "sample-16.jpg" },
+    { "id": 17, "file": "sample-17.jpg" },
+    { "id": 18, "file": "sample-18.jpg" },
+    { "id": 19, "file": "sample-19.jpg" },
+    { "id": 20, "file": "sample-20.jpg" }
+  ],
+  "authors": [
+    { "id": 1, "name": "jane Doe" },
+    { "id": 2, "name": "john Doe" }
+  ]
+}
