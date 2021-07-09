@@ -430,7 +430,7 @@ There are two options to solve this SPA drawback in SEO:
 
 * Converting the SPA into a server-side rendering (SSR) application.
 
-# Generating Static Pages
+# Generating Static Pages (Prerendering)
 
 There are many options you can generate static pages from your SPA:
 
@@ -468,7 +468,7 @@ There are options you can convert your SPA into a SSR app:
 
 Read More:
 
-* https://v3.vuejs.org/guide/ssr/getting-started.html#installation
+* https://v3.vuejs.org/guide/ssr/introduction.html#what-is-server-side-rendering-ssr
 
 * https://vitejs.dev/guide/ssr.html#setting-up-the-dev-server
 
