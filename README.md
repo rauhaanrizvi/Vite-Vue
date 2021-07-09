@@ -422,7 +422,7 @@ You can follow the steps below to install and create the mock data:
 
 # Handling SEO
 
-Single-page apps render your content dynamically using JavaScript and an empty HTML. Hence, search engine crawlers are not able to collect the content (i.e. the text) and stores it in a databank.
+Single-page apps render your site content dynamically using JavaScript and an empty HTML. Hence, search engine crawlers generally are not able to collect the content (i.e. the text) and store it in a databank.
 
 There are two options to solve this SPA drawback in SEO:
 
@@ -452,7 +452,7 @@ There are many options you can generate static pages from your SPA:
 
 * [Vue Storefront Static Pages Generator](https://docs.vuestorefront.io/v1/guide/basics/static-generator.html)
 
-    You should only go for this option if you are building a eCommerce site with Vue.js.
+    You should only go for this option if you are building an eCommerce site with Vue.js.
 
 Read More:
 
