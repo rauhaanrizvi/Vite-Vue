@@ -420,6 +420,58 @@ You can follow the steps below to install and create the mock data:
     { "id": 1, "title": "json-server", "author": "Jane Doe" }
     ```
 
+# Handling SEO
+
+Single-page apps render your content dynamically using JavaScript and an empty HTML. Hence, search engine crawlers are not able to collect the content (i.e. the text) and stores it in a databank.
+
+There are two options to solve this SPA drawback in SEO:
+
+* Generating static pages from the SPA using a static site generator.
+
+* Converting the SPA into a server-side rendering (SSR) application.
+
+# Generating Static Pages
+
+There are many options you can generate static pages from your SPA:
+
+* [Vuepress](https://vuepress.vuejs.org/)
+
+    However, you can't use external APIs for serving your app contents with this option. You need to use .md files to create your contents and routes locally within the Vuepress app. 
+
+* [Gridsome](https://gridsome.org/)
+
+    A Gridsome app can work with any headless CMS, API or database by using a GraphQL data layer. This means you need to know how to query your data using GraphQL queries. Hence, it can be complicated.
+
+* [Nuxt Static Generated Mode](https://nuxtjs.org/docs/2.x/concepts/static-site-generation)
+
+    With this option, you can use external APIs, local APIs, or even using .md files for serving your app content. But Nuxt is a SSR framework, so you need to refactor your SPA and convert it into a SSR app.
+
+* [Puppeteer](https://github.com/puppeteer/puppeteer)
+
+    With this option, you don't need to refactor your SPA, you can use external APIs as it is. However, it requires extra works as you need to write some functions to use this Node library to scrape your SPA.
+
+* [Vue Storefront Static Pages Generator](https://docs.vuestorefront.io/v1/guide/basics/static-generator.html)
+
+    You should only go for this option if you are building a eCommerce site with Vue.js.
+
+Read More:
+
+* https://vue-community.org/guide/ecosystem/static-site-generators.html
+
+# Building SSR Applications
+
+There are options you can convert your SPA into a SSR app:
+
+* Integrating with a Node.js server-side framework manually, such as [Express](https://expressjs.com/).
+
+* Using [Nuxt](https://nuxtjs.org/) directly instead. You can also integrate Nuxt with Express or using Express separately as an API without internal integration.
+
+Read More:
+
+* https://v3.vuejs.org/guide/ssr/getting-started.html#installation
+
+* https://vitejs.dev/guide/ssr.html#setting-up-the-dev-server
+
 # Notes
 
 1. The method and data property names should not be the same. Otherwise they they will conflict with each other. For example:

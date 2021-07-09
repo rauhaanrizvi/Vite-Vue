@@ -2,6 +2,7 @@
 // Usage:
 // $ node puppeteer.js
 // https://github.com/puppeteer/puppeteer
+// https://medium.com/front-end-weekly/building-a-pre-renderer-for-spas-108f956f8b
 // https://andrejsabrickis.medium.com/scrapping-the-content-of-single-page-application-spa-with-headless-chrome-and-puppeteer-d040025f752b
 const puppeteer = require('puppeteer');
 
