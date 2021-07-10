@@ -482,7 +482,7 @@ The main selling point of Gridsome is GraphQL. It normalises all of your externa
 
 You can achieve the same in Nuxt if you want to use GraphQL. But it does not come out of the box like Gridsome. You can use [Keystone](https://keystonejs.com/) that uses [MongoDB or PostgreSQL](https://v5.keystonejs.com/quick-start/adapters) only, or you can build your own GraphQL API and server for using Markdown files as your data resources.
 
-The GraphQL queries in Gridsome is slightly opinionated, for example, to query a collection of posts, you need the `edges` and `node` fields:
+The GraphQL queries in Gridsome is slightly "opinionated", for example, to query a collection of posts, you need the `edges` and `node` fields:
 
 ```
 query {
@@ -594,6 +594,28 @@ export default {
 ```
 
 It is zero configuration in Nuxt. The code in the `<script>` block is longer as the preceding example code uses the plain HTTP POST method from `axios` to send out the GraphQL query. But you can make it concise with [Nuxt Apollo module](https://github.com/nuxt-community/apollo-module).
+
+# Using Markdown Files as a Database for Nuxt
+
+There are options if you want to use Markdown files as your database for Nuxt applications. They are as follows:
+
+* Using the [@nuxt/content](https://content.nuxtjs.org/) module. You can see examples of Nuxt apps using this module to serve local Markdown files at this [repo](https://github.com/lautiamkok/Nuxt-Content). However, there is no GraphQL layer in this option. You just fetch the content like this:
+
+    ```
+    export default {
+      async asyncData ({ $content }) {
+        const page = await $content('home').fetch()
+
+        return {
+          page
+        }
+      }
+    }
+    ``` 
+
+* Creating your own Markdown GraphQL API and server. This is a better option if you have time and want to build the API which you have more control. You can integrate Express or Koa with [Apollo Server](https://www.apollographql.com/docs/apollo-server/) to create your own GraphQL API. Or just the Apollo Server on its own. Either which, the result is rewarding. You can check out https://www.apollographql.com/docs/apollo-server/getting-started/ to get started.
+
+* Using Gridsome as a GraphQL API and server. With this option, you don't have to build the API from scratch. You just have to run Gridsome and access the GraphQL API endpoint at `localhost:8081/___explore`. Then you can simply ignore the rest of Gridsome parts. This isn't ideal as it is odd to install Gridsome just for serving Markdown files from its GraphQL API.
 
 # Notes
 
