@@ -586,7 +586,7 @@ export default {
     })
 
     return {
-      post: result.allProjects[0],
+      post: result.allPosts[0],
     }
   },
 }
