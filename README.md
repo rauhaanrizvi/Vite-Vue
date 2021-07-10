@@ -508,7 +508,7 @@ query {
 }
 ```
 
-While if you use your own GraphQL API and server, you can do it in any way your want, for example:
+While if you use your own GraphQL API and server, you can do it in any way you want, for example:
 
 ```
 query {
