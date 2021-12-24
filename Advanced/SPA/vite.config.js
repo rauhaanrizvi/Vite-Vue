@@ -9,6 +9,10 @@ export default {
     vue(),
     WindiCSS(),
   ],
+  
+  server: {
+    host: '0.0.0.0'
+  },
 
   // Vite does not support alias in html files.
   // https://github.com/vitejs/vite/issues/3000
