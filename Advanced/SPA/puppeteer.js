@@ -10,7 +10,7 @@ const puppeteer = require('puppeteer');
   try {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('http://localhost:5000/about/');
+    await page.goto('http://0.0.0.0:5000/about/');
     await page.waitForSelector('#app', { timeout: 1000 });
 
     // const body = await page.evaluate(() => {
